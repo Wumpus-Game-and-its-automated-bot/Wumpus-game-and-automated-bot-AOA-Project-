@@ -19,192 +19,27 @@ namespace Wumpus_game
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            pb12.Image = Properties.Resources.agent;
-            Random rnd = new Random();
-            int pitrnd = rnd.Next(0, 16);
-            int wumpusrnd;
-            int goldrnd;
-            printPit(pitrnd);
-            do
-            {
-                wumpusrnd = rnd.Next(0, 16);
-            }
-            while (wumpusrnd == pitrnd);
-            printWumpus(wumpusrnd);
-            do
-            {
-                goldrnd = rnd.Next(0, 16);
-            }
-            while (goldrnd == pitrnd || goldrnd == wumpusrnd);
-            printGold(goldrnd);
+            btn00.Image = Properties.Resources.agent;
         }
 
-
-        void printPit(int num)
+        private void btn00_Click(object sender, EventArgs e)
         {
-            switch (num)
-            {
-                case 0:
-                    pb0.Image = Properties.Resources.pit;
-                    break;
-                case 1:
-                    pb1.Image = Properties.Resources.pit;
-                    break;
-                case 2:
-                    pb2.Image = Properties.Resources.pit;
-                    break;
-                case 3:
-                    pb3.Image = Properties.Resources.pit;
-                    break;
-                case 4:
-                    pb4.Image = Properties.Resources.pit;
-                    break;
-                case 5:
-                    pb5.Image = Properties.Resources.pit;
-                    break;
-                case 6:
-                    pb6.Image = Properties.Resources.pit;
-                    break;
-                case 7:
-                    pb7.Image = Properties.Resources.pit;
-                    break;
-                case 8:
-                    pb8.Image = Properties.Resources.pit;
-                    break;
-                case 9:
-                    pb9.Image = Properties.Resources.pit;
-                    break;
-                case 10:
-                    pb13.Image = Properties.Resources.pit;
-                    break;
-                case 11:
-                    pb9.Image = Properties.Resources.pit;
-                    break;
-                case 13:
-                    pb1.Image = Properties.Resources.pit;
-                    break;
-                case 14:
-                    pb14.Image = Properties.Resources.pit;
-                    break;
-                case 15:
-                    pb15.Image = Properties.Resources.pit;
-                    break;
-                default:
-                    pb10.Image = Properties.Resources.pit;
-                    break;
-            }
 
         }
 
-        void printGold(int num)
+        private void btn30_Click(object sender, EventArgs e)
         {
-            switch (num)
-            {
-                case 0:
-                    pb0.Image = Properties.Resources.gold;
-                    break;
-                case 1:
-                    pb1.Image = Properties.Resources.gold;
-                    break;
-                case 2:
-                    pb2.Image = Properties.Resources.gold;
-                    break;
-                case 3:
-                    pb3.Image = Properties.Resources.gold;
-                    break;
-                case 4:
-                    pb4.Image = Properties.Resources.gold;
-                    break;
-                case 5:
-                    pb5.Image = Properties.Resources.gold;
-                    break;
-                case 6:
-                    pb6.Image = Properties.Resources.gold;
-                    break;
-                case 7:
-                    pb7.Image = Properties.Resources.gold;
-                    break;
-                case 8:
-                    pb8.Image = Properties.Resources.gold;
-                    break;
-                case 9:
-                    pb9.Image = Properties.Resources.gold;
-                    break;
-                case 10:
-                    pb13.Image = Properties.Resources.gold;
-                    break;
-                case 11:
-                    pb9.Image = Properties.Resources.gold;
-                    break;
-                case 13:
-                    pb1.Image = Properties.Resources.gold;
-                    break;
-                case 14:
-                    pb14.Image = Properties.Resources.gold;
-                    break;
-                case 15:
-                    pb15.Image = Properties.Resources.gold;
-                    break;
-                default:
-                    pb2.Image = Properties.Resources.gold;
-                    break;
-            }
+            Button b = (Button)sender;
+            b.Image = Properties.Resources.strgd;
+        }
+
+        private void btn01_Click(object sender, EventArgs e)
+        {
 
         }
 
-        void printWumpus(int num)
+        private void btn02_Click(object sender, EventArgs e)
         {
-            switch (num)
-            {
-                case 0:
-                    pb0.Image = Properties.Resources.wumpus;
-                    break;
-                case 1:
-                    pb1.Image = Properties.Resources.wumpus;
-                    break;
-                case 2:
-                    pb2.Image = Properties.Resources.wumpus;
-                    break;
-                case 3:
-                    pb3.Image = Properties.Resources.wumpus;
-                    break;
-                case 4:
-                    pb4.Image = Properties.Resources.wumpus;
-                    break;
-                case 5:
-                    pb5.Image = Properties.Resources.wumpus;
-                    break;
-                case 6:
-                    pb6.Image = Properties.Resources.wumpus;
-                    break;
-                case 7:
-                    pb7.Image = Properties.Resources.wumpus;
-                    break;
-                case 8:
-                    pb8.Image = Properties.Resources.wumpus;
-                    break;
-                case 9:
-                    pb9.Image = Properties.Resources.wumpus;
-                    break;
-                case 10:
-                    pb13.Image = Properties.Resources.wumpus;
-                    break;
-                case 11:
-                    pb9.Image = Properties.Resources.wumpus;
-                    break;
-                case 13:
-                    pb1.Image = Properties.Resources.wumpus;
-                    break;
-                case 14:
-                    pb14.Image = Properties.Resources.wumpus;
-                    break;
-                case 15:
-                    pb15.Image = Properties.Resources.wumpus;
-                    break;
-                default:
-                    pb6.Image = Properties.Resources.wumpus;
-                    break;
-            }
 
         }
     }
