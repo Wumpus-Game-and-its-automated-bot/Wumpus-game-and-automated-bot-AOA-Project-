@@ -1,0 +1,18 @@
+C:\Users\Lenovo\Desktop\Wumpus world\Game code\Wumpus game\Wumpus game\bin\Debug\Wumpus game.exe.config
+C:\Users\Lenovo\Desktop\Wumpus world\Game code\Wumpus game\Wumpus game\bin\Debug\Wumpus game.exe
+C:\Users\Lenovo\Desktop\Wumpus world\Game code\Wumpus game\Wumpus game\bin\Debug\Wumpus game.pdb
+C:\Users\Lenovo\Desktop\Wumpus world\Game code\Wumpus game\Wumpus game\obj\Debug\Wumpus game.csprojResolveAssemblyReference.cache
+C:\Users\Lenovo\Desktop\Wumpus world\Game code\Wumpus game\Wumpus game\obj\Debug\Wumpus_game.Form1.resources
+C:\Users\Lenovo\Desktop\Wumpus world\Game code\Wumpus game\Wumpus game\obj\Debug\Wumpus_game.Properties.Resources.resources
+C:\Users\Lenovo\Desktop\Wumpus world\Game code\Wumpus game\Wumpus game\obj\Debug\Wumpus game.csproj.GenerateResource.Cache
+C:\Users\Lenovo\Desktop\Wumpus world\Game code\Wumpus game\Wumpus game\obj\Debug\Wumpus game.exe
+C:\Users\Lenovo\Desktop\Wumpus world\Game code\Wumpus game\Wumpus game\obj\Debug\Wumpus game.pdb
+C:\Users\Lenovo\Desktop\Wumpus world\waraich\Wumpus game\Wumpus game\bin\Debug\Wumpus game.exe.config
+C:\Users\Lenovo\Desktop\Wumpus world\waraich\Wumpus game\Wumpus game\obj\Debug\Wumpus game.exe
+C:\Users\Lenovo\Desktop\Wumpus world\waraich\Wumpus game\Wumpus game\obj\Debug\Wumpus game.pdb
+C:\Users\Lenovo\Desktop\Wumpus world\waraich\Wumpus game\Wumpus game\bin\Debug\Wumpus game.exe
+C:\Users\Lenovo\Desktop\Wumpus world\waraich\Wumpus game\Wumpus game\bin\Debug\Wumpus game.pdb
+C:\Users\Lenovo\Desktop\Wumpus world\waraich\Wumpus game\Wumpus game\obj\Debug\Wumpus game.csprojResolveAssemblyReference.cache
+C:\Users\Lenovo\Desktop\Wumpus world\waraich\Wumpus game\Wumpus game\obj\Debug\Wumpus_game.Form1.resources
+C:\Users\Lenovo\Desktop\Wumpus world\waraich\Wumpus game\Wumpus game\obj\Debug\Wumpus_game.Properties.Resources.resources
+C:\Users\Lenovo\Desktop\Wumpus world\waraich\Wumpus game\Wumpus game\obj\Debug\Wumpus game.csproj.GenerateResource.Cache

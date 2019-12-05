@@ -29,181 +29,209 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btn03 = new System.Windows.Forms.Button();
-            this.btn02 = new System.Windows.Forms.Button();
-            this.btn01 = new System.Windows.Forms.Button();
-            this.btn00 = new System.Windows.Forms.Button();
-            this.btn13 = new System.Windows.Forms.Button();
-            this.btn12 = new System.Windows.Forms.Button();
-            this.btn11 = new System.Windows.Forms.Button();
-            this.btn10 = new System.Windows.Forms.Button();
-            this.btn23 = new System.Windows.Forms.Button();
-            this.btn22 = new System.Windows.Forms.Button();
-            this.btn21 = new System.Windows.Forms.Button();
-            this.btn20 = new System.Windows.Forms.Button();
-            this.btn33 = new System.Windows.Forms.Button();
-            this.btn32 = new System.Windows.Forms.Button();
-            this.btn31 = new System.Windows.Forms.Button();
-            this.btn30 = new System.Windows.Forms.Button();
+            this.pb0 = new System.Windows.Forms.PictureBox();
+            this.pb1 = new System.Windows.Forms.PictureBox();
+            this.pb2 = new System.Windows.Forms.PictureBox();
+            this.pb3 = new System.Windows.Forms.PictureBox();
+            this.pb4 = new System.Windows.Forms.PictureBox();
+            this.pb7 = new System.Windows.Forms.PictureBox();
+            this.pb6 = new System.Windows.Forms.PictureBox();
+            this.pb5 = new System.Windows.Forms.PictureBox();
+            this.pb9 = new System.Windows.Forms.PictureBox();
+            this.pb10 = new System.Windows.Forms.PictureBox();
+            this.pb11 = new System.Windows.Forms.PictureBox();
+            this.pb8 = new System.Windows.Forms.PictureBox();
+            this.pb15 = new System.Windows.Forms.PictureBox();
+            this.pb14 = new System.Windows.Forms.PictureBox();
+            this.pb13 = new System.Windows.Forms.PictureBox();
+            this.pb12 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb0)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb15)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb12)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btn30);
-            this.groupBox1.Controls.Add(this.btn03);
-            this.groupBox1.Controls.Add(this.btn02);
-            this.groupBox1.Controls.Add(this.btn01);
-            this.groupBox1.Controls.Add(this.btn00);
-            this.groupBox1.Controls.Add(this.btn13);
-            this.groupBox1.Controls.Add(this.btn12);
-            this.groupBox1.Controls.Add(this.btn11);
-            this.groupBox1.Controls.Add(this.btn10);
-            this.groupBox1.Controls.Add(this.btn23);
-            this.groupBox1.Controls.Add(this.btn22);
-            this.groupBox1.Controls.Add(this.btn21);
-            this.groupBox1.Controls.Add(this.btn20);
-            this.groupBox1.Controls.Add(this.btn33);
-            this.groupBox1.Controls.Add(this.btn32);
-            this.groupBox1.Controls.Add(this.btn31);
-            this.groupBox1.Location = new System.Drawing.Point(32, 23);
+            this.groupBox1.Controls.Add(this.pb0);
+            this.groupBox1.Controls.Add(this.pb1);
+            this.groupBox1.Controls.Add(this.pb2);
+            this.groupBox1.Controls.Add(this.pb3);
+            this.groupBox1.Controls.Add(this.pb4);
+            this.groupBox1.Controls.Add(this.pb7);
+            this.groupBox1.Controls.Add(this.pb6);
+            this.groupBox1.Controls.Add(this.pb5);
+            this.groupBox1.Controls.Add(this.pb9);
+            this.groupBox1.Controls.Add(this.pb10);
+            this.groupBox1.Controls.Add(this.pb11);
+            this.groupBox1.Controls.Add(this.pb8);
+            this.groupBox1.Controls.Add(this.pb15);
+            this.groupBox1.Controls.Add(this.pb14);
+            this.groupBox1.Controls.Add(this.pb13);
+            this.groupBox1.Controls.Add(this.pb12);
+            this.groupBox1.Location = new System.Drawing.Point(32, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(578, 594);
+            this.groupBox1.Size = new System.Drawing.Size(551, 605);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "Wumpus Bot";
             // 
-            // btn03
+            // pb0
             // 
-            this.btn03.Location = new System.Drawing.Point(427, 436);
-            this.btn03.Name = "btn03";
-            this.btn03.Size = new System.Drawing.Size(130, 130);
-            this.btn03.TabIndex = 14;
-            this.btn03.UseVisualStyleBackColor = true;
+            this.pb0.Location = new System.Drawing.Point(7, 50);
+            this.pb0.Name = "pb0";
+            this.pb0.Size = new System.Drawing.Size(130, 130);
+            this.pb0.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb0.TabIndex = 12;
+            this.pb0.TabStop = false;
             // 
-            // btn02
+            // pb1
             // 
-            this.btn02.Location = new System.Drawing.Point(291, 436);
-            this.btn02.Name = "btn02";
-            this.btn02.Size = new System.Drawing.Size(130, 130);
-            this.btn02.TabIndex = 13;
-            this.btn02.UseVisualStyleBackColor = true;
-            this.btn02.Click += new System.EventHandler(this.btn02_Click);
+            this.pb1.Location = new System.Drawing.Point(143, 50);
+            this.pb1.Name = "pb1";
+            this.pb1.Size = new System.Drawing.Size(130, 130);
+            this.pb1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb1.TabIndex = 11;
+            this.pb1.TabStop = false;
             // 
-            // btn01
+            // pb2
             // 
-            this.btn01.Location = new System.Drawing.Point(155, 436);
-            this.btn01.Name = "btn01";
-            this.btn01.Size = new System.Drawing.Size(130, 130);
-            this.btn01.TabIndex = 12;
-            this.btn01.UseVisualStyleBackColor = true;
-            this.btn01.Click += new System.EventHandler(this.btn01_Click);
+            this.pb2.Location = new System.Drawing.Point(278, 50);
+            this.pb2.Name = "pb2";
+            this.pb2.Size = new System.Drawing.Size(130, 130);
+            this.pb2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb2.TabIndex = 10;
+            this.pb2.TabStop = false;
             // 
-            // btn00
+            // pb3
             // 
-            this.btn00.Location = new System.Drawing.Point(19, 436);
-            this.btn00.Name = "btn00";
-            this.btn00.Size = new System.Drawing.Size(130, 130);
-            this.btn00.TabIndex = 11;
-            this.btn00.UseVisualStyleBackColor = true;
-            this.btn00.Click += new System.EventHandler(this.btn00_Click);
+            this.pb3.Location = new System.Drawing.Point(414, 50);
+            this.pb3.Name = "pb3";
+            this.pb3.Size = new System.Drawing.Size(130, 130);
+            this.pb3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb3.TabIndex = 9;
+            this.pb3.TabStop = false;
             // 
-            // btn13
+            // pb4
             // 
-            this.btn13.Location = new System.Drawing.Point(427, 300);
-            this.btn13.Name = "btn13";
-            this.btn13.Size = new System.Drawing.Size(130, 130);
-            this.btn13.TabIndex = 10;
-            this.btn13.UseVisualStyleBackColor = true;
+            this.pb4.Location = new System.Drawing.Point(6, 186);
+            this.pb4.Name = "pb4";
+            this.pb4.Size = new System.Drawing.Size(130, 130);
+            this.pb4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb4.TabIndex = 8;
+            this.pb4.TabStop = false;
             // 
-            // btn12
+            // pb7
             // 
-            this.btn12.Location = new System.Drawing.Point(291, 300);
-            this.btn12.Name = "btn12";
-            this.btn12.Size = new System.Drawing.Size(130, 130);
-            this.btn12.TabIndex = 9;
-            this.btn12.UseVisualStyleBackColor = true;
+            this.pb7.Location = new System.Drawing.Point(415, 186);
+            this.pb7.Name = "pb7";
+            this.pb7.Size = new System.Drawing.Size(130, 130);
+            this.pb7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb7.TabIndex = 7;
+            this.pb7.TabStop = false;
             // 
-            // btn11
+            // pb6
             // 
-            this.btn11.Location = new System.Drawing.Point(155, 300);
-            this.btn11.Name = "btn11";
-            this.btn11.Size = new System.Drawing.Size(130, 130);
-            this.btn11.TabIndex = 8;
-            this.btn11.UseVisualStyleBackColor = true;
+            this.pb6.Location = new System.Drawing.Point(279, 186);
+            this.pb6.Name = "pb6";
+            this.pb6.Size = new System.Drawing.Size(130, 130);
+            this.pb6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb6.TabIndex = 6;
+            this.pb6.TabStop = false;
             // 
-            // btn10
+            // pb5
             // 
-            this.btn10.Location = new System.Drawing.Point(19, 300);
-            this.btn10.Name = "btn10";
-            this.btn10.Size = new System.Drawing.Size(130, 130);
-            this.btn10.TabIndex = 4;
-            this.btn10.UseVisualStyleBackColor = true;
+            this.pb5.Location = new System.Drawing.Point(143, 186);
+            this.pb5.Name = "pb5";
+            this.pb5.Size = new System.Drawing.Size(130, 130);
+            this.pb5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb5.TabIndex = 5;
+            this.pb5.TabStop = false;
             // 
-            // btn23
+            // pb9
             // 
-            this.btn23.Location = new System.Drawing.Point(427, 164);
-            this.btn23.Name = "btn23";
-            this.btn23.Size = new System.Drawing.Size(130, 130);
-            this.btn23.TabIndex = 7;
-            this.btn23.UseVisualStyleBackColor = true;
+            this.pb9.Location = new System.Drawing.Point(142, 322);
+            this.pb9.Name = "pb9";
+            this.pb9.Size = new System.Drawing.Size(130, 130);
+            this.pb9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb9.TabIndex = 1;
+            this.pb9.TabStop = false;
             // 
-            // btn22
+            // pb10
             // 
-            this.btn22.Location = new System.Drawing.Point(291, 164);
-            this.btn22.Name = "btn22";
-            this.btn22.Size = new System.Drawing.Size(130, 130);
-            this.btn22.TabIndex = 6;
-            this.btn22.UseVisualStyleBackColor = true;
+            this.pb10.Location = new System.Drawing.Point(278, 322);
+            this.pb10.Name = "pb10";
+            this.pb10.Size = new System.Drawing.Size(130, 130);
+            this.pb10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb10.TabIndex = 2;
+            this.pb10.TabStop = false;
             // 
-            // btn21
+            // pb11
             // 
-            this.btn21.Location = new System.Drawing.Point(155, 164);
-            this.btn21.Name = "btn21";
-            this.btn21.Size = new System.Drawing.Size(130, 130);
-            this.btn21.TabIndex = 5;
-            this.btn21.UseVisualStyleBackColor = true;
+            this.pb11.Location = new System.Drawing.Point(415, 322);
+            this.pb11.Name = "pb11";
+            this.pb11.Size = new System.Drawing.Size(130, 130);
+            this.pb11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb11.TabIndex = 3;
+            this.pb11.TabStop = false;
             // 
-            // btn20
+            // pb8
             // 
-            this.btn20.Location = new System.Drawing.Point(19, 164);
-            this.btn20.Name = "btn20";
-            this.btn20.Size = new System.Drawing.Size(130, 130);
-            this.btn20.TabIndex = 4;
-            this.btn20.UseVisualStyleBackColor = true;
+            this.pb8.Location = new System.Drawing.Point(6, 322);
+            this.pb8.Name = "pb8";
+            this.pb8.Size = new System.Drawing.Size(130, 130);
+            this.pb8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb8.TabIndex = 4;
+            this.pb8.TabStop = false;
             // 
-            // btn33
+            // pb15
             // 
-            this.btn33.Location = new System.Drawing.Point(427, 28);
-            this.btn33.Name = "btn33";
-            this.btn33.Size = new System.Drawing.Size(130, 130);
-            this.btn33.TabIndex = 3;
-            this.btn33.UseVisualStyleBackColor = true;
+            this.pb15.Location = new System.Drawing.Point(414, 458);
+            this.pb15.Name = "pb15";
+            this.pb15.Size = new System.Drawing.Size(130, 130);
+            this.pb15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb15.TabIndex = 3;
+            this.pb15.TabStop = false;
             // 
-            // btn32
+            // pb14
             // 
-            this.btn32.Location = new System.Drawing.Point(291, 28);
-            this.btn32.Name = "btn32";
-            this.btn32.Size = new System.Drawing.Size(130, 130);
-            this.btn32.TabIndex = 2;
-            this.btn32.UseVisualStyleBackColor = true;
+            this.pb14.Location = new System.Drawing.Point(278, 458);
+            this.pb14.Name = "pb14";
+            this.pb14.Size = new System.Drawing.Size(130, 130);
+            this.pb14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb14.TabIndex = 2;
+            this.pb14.TabStop = false;
             // 
-            // btn31
+            // pb13
             // 
-            this.btn31.Location = new System.Drawing.Point(155, 28);
-            this.btn31.Name = "btn31";
-            this.btn31.Size = new System.Drawing.Size(130, 130);
-            this.btn31.TabIndex = 1;
-            this.btn31.UseVisualStyleBackColor = true;
+            this.pb13.Location = new System.Drawing.Point(142, 458);
+            this.pb13.Name = "pb13";
+            this.pb13.Size = new System.Drawing.Size(130, 130);
+            this.pb13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb13.TabIndex = 1;
+            this.pb13.TabStop = false;
             // 
-            // btn30
+            // pb12
             // 
-            this.btn30.Location = new System.Drawing.Point(19, 28);
-            this.btn30.Name = "btn30";
-            this.btn30.Size = new System.Drawing.Size(130, 130);
-            this.btn30.TabIndex = 15;
-            this.btn30.UseVisualStyleBackColor = true;
-            this.btn30.Click += new System.EventHandler(this.btn30_Click);
+            this.pb12.Location = new System.Drawing.Point(6, 458);
+            this.pb12.Name = "pb12";
+            this.pb12.Size = new System.Drawing.Size(130, 130);
+            this.pb12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb12.TabIndex = 0;
+            this.pb12.TabStop = false;
             // 
             // Form1
             // 
@@ -215,6 +243,22 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pb0)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb15)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb12)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -222,22 +266,22 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btn33;
-        private System.Windows.Forms.Button btn32;
-        private System.Windows.Forms.Button btn31;
-        private System.Windows.Forms.Button btn03;
-        private System.Windows.Forms.Button btn02;
-        private System.Windows.Forms.Button btn01;
-        private System.Windows.Forms.Button btn00;
-        private System.Windows.Forms.Button btn13;
-        private System.Windows.Forms.Button btn12;
-        private System.Windows.Forms.Button btn11;
-        private System.Windows.Forms.Button btn10;
-        private System.Windows.Forms.Button btn23;
-        private System.Windows.Forms.Button btn22;
-        private System.Windows.Forms.Button btn21;
-        private System.Windows.Forms.Button btn20;
-        private System.Windows.Forms.Button btn30;
+        private System.Windows.Forms.PictureBox pb0;
+        private System.Windows.Forms.PictureBox pb1;
+        private System.Windows.Forms.PictureBox pb2;
+        private System.Windows.Forms.PictureBox pb3;
+        private System.Windows.Forms.PictureBox pb4;
+        private System.Windows.Forms.PictureBox pb7;
+        private System.Windows.Forms.PictureBox pb6;
+        private System.Windows.Forms.PictureBox pb5;
+        private System.Windows.Forms.PictureBox pb9;
+        private System.Windows.Forms.PictureBox pb10;
+        private System.Windows.Forms.PictureBox pb11;
+        private System.Windows.Forms.PictureBox pb8;
+        private System.Windows.Forms.PictureBox pb15;
+        private System.Windows.Forms.PictureBox pb14;
+        private System.Windows.Forms.PictureBox pb13;
+        private System.Windows.Forms.PictureBox pb12;
     }
 }
 
