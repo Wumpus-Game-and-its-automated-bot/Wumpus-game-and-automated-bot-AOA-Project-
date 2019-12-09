@@ -45,6 +45,7 @@
             this.pb14 = new System.Windows.Forms.PictureBox();
             this.pb13 = new System.Windows.Forms.PictureBox();
             this.pb12 = new System.Windows.Forms.PictureBox();
+            this.nextMov = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb0)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb1)).BeginInit();
@@ -97,6 +98,7 @@
             this.pb0.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pb0.TabIndex = 12;
             this.pb0.TabStop = false;
+            this.pb0.Click += new System.EventHandler(this.pb0_Click);
             // 
             // pb1
             // 
@@ -115,6 +117,7 @@
             this.pb2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pb2.TabIndex = 10;
             this.pb2.TabStop = false;
+            this.pb2.Click += new System.EventHandler(this.pb2_Click);
             // 
             // pb3
             // 
@@ -233,11 +236,22 @@
             this.pb12.TabIndex = 0;
             this.pb12.TabStop = false;
             // 
+            // nextMov
+            // 
+            this.nextMov.Location = new System.Drawing.Point(648, 107);
+            this.nextMov.Name = "nextMov";
+            this.nextMov.Size = new System.Drawing.Size(75, 23);
+            this.nextMov.TabIndex = 1;
+            this.nextMov.Text = "Next";
+            this.nextMov.UseVisualStyleBackColor = true;
+            this.nextMov.Click += new System.EventHandler(this.nextMov_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(634, 634);
+            this.ClientSize = new System.Drawing.Size(774, 634);
+            this.Controls.Add(this.nextMov);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -282,6 +296,7 @@
         private System.Windows.Forms.PictureBox pb14;
         private System.Windows.Forms.PictureBox pb13;
         private System.Windows.Forms.PictureBox pb12;
+        private System.Windows.Forms.Button nextMov;
     }
 }
 

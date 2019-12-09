@@ -18,14 +18,17 @@ namespace Wumpus_game
             InitializeComponent();
         }
 
+        int pitrnd;
+        int wumpusrnd;
+        int goldrnd;
+        int agent = 12;
+
         private void Form1_Load(object sender, EventArgs e)
         {
             pb12.Image = Properties.Resources.agent;
-            int agent = 12;
+            
             Random rnd = new Random();
-            int pitrnd;
-            int wumpusrnd;
-            int goldrnd;
+            
             do
             {
                 pitrnd = rnd.Next(0, 16);
@@ -45,10 +48,183 @@ namespace Wumpus_game
             while (goldrnd == pitrnd || goldrnd == wumpusrnd || wumpusrnd == 12);
             printGold(goldrnd);
 
-            while(agent != goldrnd)
+        }
+        private void nextMov_Click(object sender, EventArgs e)
+        {
+            botAlgo();
+        }
+
+        void botAlgo()
+        {
+            Random mov = new Random();
+            int nextMove = 0;
+            if (agent == goldrnd)
             {
-                agent = moveRight(agent);
-                Thread.Sleep(2000);
+                MessageBox.Show("Cheers !!! \nYou won!");
+                this.Close();
+            }
+            else if (agent == pitrnd)
+            {
+                MessageBox.Show(" You lost in a pit! \n A shameful display !!!");
+                this.Close();
+            }
+            else if (agent == wumpusrnd)
+            {
+                MessageBox.Show(" You were eaten by a Wumpus! \n A shameful display !!!");
+                this.Close();
+            }
+            else if (agent == 4 || agent == 8)
+            {
+                nextMove = mov.Next(0, 3);
+                switch (nextMove)
+                {
+                    case 0:
+                        agent = moveUp(agent);
+                        break;
+                    case 1:
+                        agent = moveRight(agent);
+                        break;
+                    case 2:
+                        agent = moveDown(agent);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else if (agent == 7 || agent == 11)
+            {
+                nextMove = mov.Next(0, 3);
+                switch (nextMove)
+                {
+                    case 0:
+                        agent = moveUp(agent);
+                        break;
+                    case 1:
+                        agent = moveLeft(agent);
+                        break;
+                    case 2:
+                        agent = moveDown(agent);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else if (agent == 13 || agent == 14)
+            {
+                nextMove = mov.Next(0, 3);
+                switch (nextMove)
+                {
+                    case 0:
+                        agent = moveUp(agent);
+                        break;
+                    case 1:
+                        agent = moveLeft(agent);
+                        break;
+                    case 2:
+                        agent = moveRight(agent);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else if (agent == 1 || agent == 2)
+            {
+                nextMove = mov.Next(0, 3);
+                switch (nextMove)
+                {
+                    case 0:
+                        agent = moveRight(agent);
+                        break;
+                    case 1:
+                        agent = moveLeft(agent);
+                        break;
+                    case 2:
+                        agent = moveDown(agent);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else if (agent == 5 || agent == 6 || agent == 9 || agent == 10)
+            {
+                nextMove = mov.Next(0, 4);
+                switch (nextMove)
+                {
+                    case 0:
+                        agent = moveUp(agent);
+                        break;
+                    case 1:
+                        agent = moveLeft(agent);
+                        break;
+                    case 2:
+                        agent = moveDown(agent);
+                        break;
+                    case 3:
+                        agent = moveRight(agent);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else if (agent == 0)
+            {
+                nextMove = mov.Next(0, 2);
+                switch (nextMove)
+                {
+                    case 0:
+                        agent = moveRight(agent);
+                        break;
+                    case 1:
+                        agent = moveDown(agent);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else if (agent == 3)
+            {
+                nextMove = mov.Next(0, 2);
+                switch (nextMove)
+                {
+                    case 0:
+                        agent = moveLeft(agent);
+                        break;
+                    case 1:
+                        agent = moveDown(agent);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else if (agent == 12)
+            {
+                nextMove = mov.Next(0, 2);
+                switch (nextMove)
+                {
+                    case 0:
+                        agent = moveRight(agent);
+                        break;
+                    case 1:
+                        agent = moveUp(agent);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else if (agent == 15)
+            {
+                nextMove = mov.Next(0, 2);
+                switch (nextMove)
+                {
+                    case 0:
+                        agent = moveUp(agent);
+                        break;
+                    case 1:
+                        agent = moveLeft(agent);
+                        break;
+                    default:
+                        break;
+                }
             }
         }
 
@@ -851,5 +1027,17 @@ namespace Wumpus_game
                     break;
             }
         }
+
+        private void pb2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pb0_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 }

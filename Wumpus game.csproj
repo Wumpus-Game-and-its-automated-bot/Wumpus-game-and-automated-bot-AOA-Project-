@@ -60,17 +60,16 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -84,13 +83,22 @@
     <None Include="Resources\Image1.bmp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\InkedBr.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gold1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\agent.jpg" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\breze.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Brst.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\InkedBr.jpg" />
+    <None Include="Resources\gold.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\pit.jpg" />
@@ -99,19 +107,10 @@
     <None Include="Resources\strench.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\strgd.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\wumpus.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\gold.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\gold1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\agent.jpg" />
+    <None Include="Resources\strgd.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
