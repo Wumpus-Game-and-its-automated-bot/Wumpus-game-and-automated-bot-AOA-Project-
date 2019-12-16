@@ -6,7 +6,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace Wumpus_game
@@ -18,6 +17,7 @@ namespace Wumpus_game
             InitializeComponent();
         }
 
+        int[] pieces = { 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z', 'z' };
         int pitrnd;
         int wumpusrnd;
         int goldrnd;
@@ -25,681 +25,520 @@ namespace Wumpus_game
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            pb12.Image = Properties.Resources.agent;
-            
             Random rnd = new Random();
-            
             do
             {
                 pitrnd = rnd.Next(0, 16);
             }
-            while (pitrnd == 12);
-            printPit(pitrnd);
+            while (pitrnd == agent);
+            pieces[pitrnd] = 'p';
+            extensions(pitrnd, 'p');
             do
             {
                 wumpusrnd = rnd.Next(0, 16);
             }
-            while (wumpusrnd == pitrnd || wumpusrnd == 12);
-            printWumpus(wumpusrnd);
+            while (wumpusrnd == pitrnd || wumpusrnd == agent);
+            pieces[wumpusrnd] = 'w';
+            extensions(wumpusrnd, 'w');
             do
             {
                 goldrnd = rnd.Next(0, 16);
             }
-            while (goldrnd == pitrnd || goldrnd == wumpusrnd || wumpusrnd == 12);
-            printGold(goldrnd);
+            while (goldrnd == pitrnd || goldrnd == wumpusrnd || goldrnd == agent);
+            pieces[goldrnd] = 'g';
 
-        }
-        private void nextMov_Click(object sender, EventArgs e)
-        {
-            botAlgo();
+            enableButtons(agent);
         }
 
-        void botAlgo()
+        private void btn0_Click(object sender, EventArgs e)
         {
-            Random mov = new Random();
-            int nextMove = 0;
-            if (agent == goldrnd)
+            showPic(0);
+            checkPic(0);
+            enableButtons(0);
+        }
+
+        private void btn1_Click(object sender, EventArgs e)
+        {
+            showPic(1);
+            checkPic(1);
+            enableButtons(1);
+        }
+
+        private void btn2_Click(object sender, EventArgs e)
+        {
+            showPic(2);
+            checkPic(2);
+            enableButtons(2);
+        }
+
+        private void btn3_Click(object sender, EventArgs e)
+        {
+            showPic(3);
+            checkPic(3);
+            enableButtons(3);
+        }
+
+        private void btn4_Click(object sender, EventArgs e)
+        {
+            showPic(4);
+            checkPic(4);
+            enableButtons(4);
+        }
+
+        private void btn5_Click(object sender, EventArgs e)
+        {
+            showPic(5);
+            checkPic(5);
+            enableButtons(5);
+        }
+
+        private void btn6_Click(object sender, EventArgs e)
+        {
+            showPic(6);
+            checkPic(6);
+            enableButtons(6);
+        }
+
+        private void btn7_Click(object sender, EventArgs e)
+        {
+            showPic(7);
+            checkPic(7);
+            enableButtons(7);
+        }
+        private void btn8_Click(object sender, EventArgs e)
+        {
+            showPic(8);
+            checkPic(8);
+            enableButtons(8);
+        }
+
+        private void btn9_Click(object sender, EventArgs e)
+        {
+            showPic(9);
+            checkPic(9);
+            enableButtons(9);
+        }
+
+        private void btn10_Click(object sender, EventArgs e)
+        {
+            showPic(10);
+            checkPic(10);
+            enableButtons(10);
+        }
+
+        private void btn11_Click(object sender, EventArgs e)
+        {
+            showPic(11);
+            checkPic(11);
+            enableButtons(11);
+        }
+
+        private void btn12_Click(object sender, EventArgs e)
+        {
+            showPic(12);
+            checkPic(12);
+            enableButtons(12);
+        }
+
+        private void btn13_Click(object sender, EventArgs e)
+        {
+            showPic(13);
+            checkPic(13);
+            enableButtons(13);
+        }
+
+        private void btn14_Click(object sender, EventArgs e)
+        {
+            showPic(14);
+            checkPic(14);
+            enableButtons(14);
+        }
+
+        private void btn15_Click(object sender, EventArgs e)
+        {
+            showPic(15);
+            checkPic(15);
+            enableButtons(15);
+        }
+
+        void checkPic(int value)
+        {
+            if(pieces[value] == 'w')
             {
-                MessageBox.Show("Cheers !!! \nYou won!");
+                MessageBox.Show("You lost! A giant Wumpus ate you!");
                 this.Close();
             }
-            else if (agent == pitrnd)
+            else if(pieces[value] == 'p')
             {
-                MessageBox.Show(" You lost in a pit! \n A shameful display !!!");
+                MessageBox.Show("You lost! You fell in deep pit!");
                 this.Close();
             }
-            else if (agent == wumpusrnd)
+            else if(pieces[value] == 'g')
             {
-                MessageBox.Show(" You were eaten by a Wumpus! \n A shameful display !!!");
+                MessageBox.Show("Gold Found! You won!");
                 this.Close();
             }
-            else if (agent == 4 || agent == 8)
-            {
-                nextMove = mov.Next(0, 3);
-                switch (nextMove)
-                {
-                    case 0:
-                        agent = moveUp(agent);
-                        break;
-                    case 1:
-                        agent = moveRight(agent);
-                        break;
-                    case 2:
-                        agent = moveDown(agent);
-                        break;
-                    default:
-                        break;
-                }
-            }
-            else if (agent == 7 || agent == 11)
-            {
-                nextMove = mov.Next(0, 3);
-                switch (nextMove)
-                {
-                    case 0:
-                        agent = moveUp(agent);
-                        break;
-                    case 1:
-                        agent = moveLeft(agent);
-                        break;
-                    case 2:
-                        agent = moveDown(agent);
-                        break;
-                    default:
-                        break;
-                }
-            }
-            else if (agent == 13 || agent == 14)
-            {
-                nextMove = mov.Next(0, 3);
-                switch (nextMove)
-                {
-                    case 0:
-                        agent = moveUp(agent);
-                        break;
-                    case 1:
-                        agent = moveLeft(agent);
-                        break;
-                    case 2:
-                        agent = moveRight(agent);
-                        break;
-                    default:
-                        break;
-                }
-            }
-            else if (agent == 1 || agent == 2)
-            {
-                nextMove = mov.Next(0, 3);
-                switch (nextMove)
-                {
-                    case 0:
-                        agent = moveRight(agent);
-                        break;
-                    case 1:
-                        agent = moveLeft(agent);
-                        break;
-                    case 2:
-                        agent = moveDown(agent);
-                        break;
-                    default:
-                        break;
-                }
-            }
-            else if (agent == 5 || agent == 6 || agent == 9 || agent == 10)
-            {
-                nextMove = mov.Next(0, 4);
-                switch (nextMove)
-                {
-                    case 0:
-                        agent = moveUp(agent);
-                        break;
-                    case 1:
-                        agent = moveLeft(agent);
-                        break;
-                    case 2:
-                        agent = moveDown(agent);
-                        break;
-                    case 3:
-                        agent = moveRight(agent);
-                        break;
-                    default:
-                        break;
-                }
-            }
-            else if (agent == 0)
-            {
-                nextMove = mov.Next(0, 2);
-                switch (nextMove)
-                {
-                    case 0:
-                        agent = moveRight(agent);
-                        break;
-                    case 1:
-                        agent = moveDown(agent);
-                        break;
-                    default:
-                        break;
-                }
-            }
-            else if (agent == 3)
-            {
-                nextMove = mov.Next(0, 2);
-                switch (nextMove)
-                {
-                    case 0:
-                        agent = moveLeft(agent);
-                        break;
-                    case 1:
-                        agent = moveDown(agent);
-                        break;
-                    default:
-                        break;
-                }
-            }
-            else if (agent == 12)
-            {
-                nextMove = mov.Next(0, 2);
-                switch (nextMove)
-                {
-                    case 0:
-                        agent = moveRight(agent);
-                        break;
-                    case 1:
-                        agent = moveUp(agent);
-                        break;
-                    default:
-                        break;
-                }
-            }
-            else if (agent == 15)
-            {
-                nextMove = mov.Next(0, 2);
-                switch (nextMove)
-                {
-                    case 0:
-                        agent = moveUp(agent);
-                        break;
-                    case 1:
-                        agent = moveLeft(agent);
-                        break;
-                    default:
-                        break;
-                }
-            }
         }
 
-        int moveDown(int agentPosition)
+        void showPic(int value)
         {
-            prevAgent(agentPosition);
-            agentPosition = agentPosition + 4;
-            moveAgent(agentPosition);
-            return agentPosition;
-        }
-
-        int moveUp(int agentPosition)
-        {
-            prevAgent(agentPosition);
-            agentPosition = agentPosition - 4;
-            moveAgent(agentPosition);
-            return agentPosition;
-        }
-
-        int moveLeft(int agentPosition)
-        {
-            prevAgent(agentPosition);
-            agentPosition = agentPosition - 1;
-            moveAgent(agentPosition);
-            return agentPosition;
-        }
-
-        int moveRight(int agentPosition)
-        {
-            prevAgent(agentPosition);
-            agentPosition = agentPosition + 1;
-            moveAgent(agentPosition);
-            return agentPosition;
-        }
-
-        void prevAgent(int agentprev)
-        {
-            switch (agentprev)
+            switch(value)
             {
                 case 0:
-                    pb0.Image = pb0.BackgroundImage;
-                    break;
-                case 1:
-                    pb1.Image = pb1.BackgroundImage;
-                    break;
-                case 2:
-                    pb2.Image = pb2.BackgroundImage;
-                    break;
-                case 3:
-                    pb3.Image = pb3.BackgroundImage;
-                    break;
-                case 4:
-                    pb4.Image = pb4.BackgroundImage;
-                    break;
-                case 5:
-                    pb5.Image = pb5.BackgroundImage;
-                    break;
-                case 6:
-                    pb6.Image = pb6.BackgroundImage;
-                    break;
-                case 7:
-                    pb7.Image = pb7.BackgroundImage;
-                    break;
-                case 8:
-                    pb8.Image = pb8.BackgroundImage;
-                    break;
-                case 9:
-                    pb9.Image = pb9.BackgroundImage;
-                    break;
-                case 10:
-                    pb10.Image = pb10.BackgroundImage;
-                    break;
-                case 11:
-                    pb11.Image = pb11.BackgroundImage;
-                    break;
-                case 12:
-                    pb12.Image = pb12.BackgroundImage;
-                    break;
-                case 13:
-                    pb13.Image = pb13.BackgroundImage;
-                    break;
-                case 14:
-                    pb14.Image = pb14.BackgroundImage;
-                    break;
-                case 15:
-                    pb15.Image = pb15.BackgroundImage;
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        void moveAgent(int agentMove)
-        {
-            switch (agentMove)
-            {
-                case 0:
-                    if(pb0.Image == null)
+                    switch(pieces[value])
                     {
-                        pb0.Image = Properties.Resources.agent;
-                    }
-                    else if(pb0.Image!=null)
-                    {
-                        pb0.BackgroundImage = pb0.Image;
-                        pb0.Image = Properties.Resources.agent;
+                        case 'w':
+                            btn0.Image = Properties.Resources.wumpus;
+                            break;
+                        case 'p':
+                            btn0.Image = Properties.Resources.pit;
+                            break;
+                        case 'g':
+                            btn0.Image = Properties.Resources.gold;
+                            break;
+                        case 's':
+                            btn0.Image = Properties.Resources.strench;
+                            break;
+                        case 'b':
+                            btn0.Image = Properties.Resources.breze;
+                            break;
+                        default:
+                            break;
                     }
                     break;
                 case 1:
-                    if (pb1.Image == null)
+                    switch (pieces[value])
                     {
-                        pb1.Image = Properties.Resources.agent;
-                    }
-                    else if (pb1.Image != null)
-                    {
-                        pb1.BackgroundImage = pb1.Image;
-                        pb1.Image = Properties.Resources.agent;
+                        case 'w':
+                            btn1.Image = Properties.Resources.wumpus;
+                            break;
+                        case 'p':
+                            btn1.Image = Properties.Resources.pit;
+                            break;
+                        case 'g':
+                            btn1.Image = Properties.Resources.gold;
+                            break;
+                        case 's':
+                            btn1.Image = Properties.Resources.strench;
+                            break;
+                        case 'b':
+                            btn1.Image = Properties.Resources.breze;
+                            break;
+                        default:
+                            break;
                     }
                     break;
                 case 2:
-                    if (pb2.Image == null)
+                    switch (pieces[value])
                     {
-                        pb2.Image = Properties.Resources.agent;
-                    }
-                    else if (pb2.Image != null)
-                    {
-                        pb2.BackgroundImage = pb2.Image;
-                        pb2.Image = Properties.Resources.agent;
+                        case 'w':
+                            btn2.Image = Properties.Resources.wumpus;
+                            break;
+                        case 'p':
+                            btn2.Image = Properties.Resources.pit;
+                            break;
+                        case 'g':
+                            btn2.Image = Properties.Resources.gold;
+                            break;
+                        case 's':
+                            btn2.Image = Properties.Resources.strench;
+                            break;
+                        case 'b':
+                            btn2.Image = Properties.Resources.breze;
+                            break;
+                        default:
+                            break;
                     }
                     break;
                 case 3:
-                    if (pb3.Image == null)
+                    switch (pieces[value])
                     {
-                        pb3.Image = Properties.Resources.agent;
-                    }
-                    else if (pb3.Image != null)
-                    {
-                        pb3.BackgroundImage = pb3.Image;
-                        pb3.Image = Properties.Resources.agent;
+                        case 'w':
+                            btn3.Image = Properties.Resources.wumpus;
+                            break;
+                        case 'p':
+                            btn3.Image = Properties.Resources.pit;
+                            break;
+                        case 'g':
+                            btn3.Image = Properties.Resources.gold;
+                            break;
+                        case 's':
+                            btn3.Image = Properties.Resources.strench;
+                            break;
+                        case 'b':
+                            btn3.Image = Properties.Resources.breze;
+                            break;
+                        default:
+                            break;
                     }
                     break;
                 case 4:
-                    if (pb4.Image == null)
+                    switch (pieces[value])
                     {
-                        pb4.Image = Properties.Resources.agent;
-                    }
-                    else if (pb4.Image != null)
-                    {
-                        pb4.BackgroundImage = pb4.Image;
-                        pb4.Image = Properties.Resources.agent;
+                        case 'w':
+                            btn4.Image = Properties.Resources.wumpus;
+                            break;
+                        case 'p':
+                            btn4.Image = Properties.Resources.pit;
+                            break;
+                        case 'g':
+                            btn4.Image = Properties.Resources.gold;
+                            break;
+                        case 's':
+                            btn4.Image = Properties.Resources.strench;
+                            break;
+                        case 'b':
+                            btn4.Image = Properties.Resources.breze;
+                            break;
+                        default:
+                            break;
                     }
                     break;
                 case 5:
-                    if (pb5.Image == null)
+                    switch (pieces[value])
                     {
-                        pb5.Image = Properties.Resources.agent;
-                    }
-                    else if (pb5.Image != null)
-                    {
-                        pb5.BackgroundImage = pb5.Image;
-                        pb5.Image = Properties.Resources.agent;
+                        case 'w':
+                            btn5.Image = Properties.Resources.wumpus;
+                            break;
+                        case 'p':
+                            btn5.Image = Properties.Resources.pit;
+                            break;
+                        case 'g':
+                            btn5.Image = Properties.Resources.gold;
+                            break;
+                        case 's':
+                            btn5.Image = Properties.Resources.strench;
+                            break;
+                        case 'b':
+                            btn5.Image = Properties.Resources.breze;
+                            break;
+                        default:
+                            break;
                     }
                     break;
                 case 6:
-                    if (pb6.Image == null)
+                    switch (pieces[value])
                     {
-                        pb6.Image = Properties.Resources.agent;
-                    }
-                    else if (pb6.Image != null)
-                    {
-                        pb6.BackgroundImage = pb6.Image;
-                        pb6.Image = Properties.Resources.agent;
+                        case 'w':
+                            btn6.Image = Properties.Resources.wumpus;
+                            break;
+                        case 'p':
+                            btn6.Image = Properties.Resources.pit;
+                            break;
+                        case 'g':
+                            btn6.Image = Properties.Resources.gold;
+                            break;
+                        case 's':
+                            btn6.Image = Properties.Resources.strench;
+                            break;
+                        case 'b':
+                            btn6.Image = Properties.Resources.breze;
+                            break;
+                        default:
+                            break;
                     }
                     break;
                 case 7:
-                    if (pb7.Image == null)
+                    switch (pieces[value])
                     {
-                        pb7.Image = Properties.Resources.agent;
-                    }
-                    else if (pb7.Image != null)
-                    {
-                        pb7.BackgroundImage = pb7.Image;
-                        pb7.Image = Properties.Resources.agent;
+                        case 'w':
+                            btn7.Image = Properties.Resources.wumpus;
+                            break;
+                        case 'p':
+                            btn7.Image = Properties.Resources.pit;
+                            break;
+                        case 'g':
+                            btn7.Image = Properties.Resources.gold;
+                            break;
+                        case 's':
+                            btn7.Image = Properties.Resources.strench;
+                            break;
+                        case 'b':
+                            btn7.Image = Properties.Resources.breze;
+                            break;
+                        default:
+                            break;
                     }
                     break;
                 case 8:
-                    if (pb8.Image == null)
+                    switch (pieces[value])
                     {
-                        pb8.Image = Properties.Resources.agent;
-                    }
-                    else if (pb8.Image != null)
-                    {
-                        pb8.BackgroundImage = pb8.Image;
-                        pb8.Image = Properties.Resources.agent;
+                        case 'w':
+                            btn8.Image = Properties.Resources.wumpus;
+                            break;
+                        case 'p':
+                            btn8.Image = Properties.Resources.pit;
+                            break;
+                        case 'g':
+                            btn8.Image = Properties.Resources.gold;
+                            break;
+                        case 's':
+                            btn8.Image = Properties.Resources.strench;
+                            break;
+                        case 'b':
+                            btn8.Image = Properties.Resources.breze;
+                            break;
+                        default:
+                            break;
                     }
                     break;
                 case 9:
-                    if (pb9.Image == null)
+                    switch (pieces[value])
                     {
-                        pb9.Image = Properties.Resources.agent;
-                    }
-                    else if (pb9.Image != null)
-                    {
-                        pb9.BackgroundImage = pb9.Image;
-                        pb9.Image = Properties.Resources.agent;
+                        case 'w':
+                            btn9.Image = Properties.Resources.wumpus;
+                            break;
+                        case 'p':
+                            btn9.Image = Properties.Resources.pit;
+                            break;
+                        case 'g':
+                            btn9.Image = Properties.Resources.gold;
+                            break;
+                        case 's':
+                            btn9.Image = Properties.Resources.strench;
+                            break;
+                        case 'b':
+                            btn9.Image = Properties.Resources.breze;
+                            break;
+                        default:
+                            break;
                     }
                     break;
                 case 10:
-                    if (pb10.Image == null)
+                    switch (pieces[value])
                     {
-                        pb10.Image = Properties.Resources.agent;
-                    }
-                    else if (pb10.Image != null)
-                    {
-                        pb10.BackgroundImage = pb10.Image;
-                        pb10.Image = Properties.Resources.agent;
+                        case 'w':
+                            btn10.Image = Properties.Resources.wumpus;
+                            break;
+                        case 'p':
+                            btn10.Image = Properties.Resources.pit;
+                            break;
+                        case 'g':
+                            btn10.Image = Properties.Resources.gold;
+                            break;
+                        case 's':
+                            btn10.Image = Properties.Resources.strench;
+                            break;
+                        case 'b':
+                            btn10.Image = Properties.Resources.breze;
+                            break;
+                        default:
+                            break;
                     }
                     break;
                 case 11:
-                    if (pb11.Image == null)
+                    switch (pieces[value])
                     {
-                        pb11.Image = Properties.Resources.agent;
-                    }
-                    else if (pb11.Image != null)
-                    {
-                        pb11.BackgroundImage = pb11.Image;
-                        pb11.Image = Properties.Resources.agent;
+                        case 'w':
+                            btn11.Image = Properties.Resources.wumpus;
+                            break;
+                        case 'p':
+                            btn11.Image = Properties.Resources.pit;
+                            break;
+                        case 'g':
+                            btn11.Image = Properties.Resources.gold;
+                            break;
+                        case 's':
+                            btn11.Image = Properties.Resources.strench;
+                            break;
+                        case 'b':
+                            btn11.Image = Properties.Resources.breze;
+                            break;
+                        default:
+                            break;
                     }
                     break;
                 case 12:
-                    if (pb12.Image == null)
+                    switch (pieces[value])
                     {
-                        pb12.Image = Properties.Resources.agent;
-                    }
-                    else if (pb12.Image != null)
-                    {
-                        pb12.BackgroundImage = pb12.Image;
-                        pb12.Image = Properties.Resources.agent;
+                        case 'w':
+                            btn12.Image = Properties.Resources.wumpus;
+                            break;
+                        case 'p':
+                            btn12.Image = Properties.Resources.pit;
+                            break;
+                        case 'g':
+                            btn12.Image = Properties.Resources.gold;
+                            break;
+                        case 's':
+                            btn12.Image = Properties.Resources.strench;
+                            break;
+                        case 'b':
+                            btn12.Image = Properties.Resources.breze;
+                            break;
+                        default:
+                            break;
                     }
                     break;
                 case 13:
-                    if (pb13.Image == null)
+                    switch (pieces[value])
                     {
-                        pb13.Image = Properties.Resources.agent;
-                    }
-                    else if (pb13.Image != null)
-                    {
-                        pb13.BackgroundImage = pb13.Image;
-                        pb13.Image = Properties.Resources.agent;
+                        case 'w':
+                            btn13.Image = Properties.Resources.wumpus;
+                            break;
+                        case 'p':
+                            btn13.Image = Properties.Resources.pit;
+                            break;
+                        case 'g':
+                            btn13.Image = Properties.Resources.gold;
+                            break;
+                        case 's':
+                            btn13.Image = Properties.Resources.strench;
+                            break;
+                        case 'b':
+                            btn13.Image = Properties.Resources.breze;
+                            break;
+                        default:
+                            break;
                     }
                     break;
                 case 14:
-                    if (pb14.Image == null)
+                    switch (pieces[value])
                     {
-                        pb14.Image = Properties.Resources.agent;
-                    }
-                    else if (pb14.Image != null)
-                    {
-                        pb14.BackgroundImage = pb14.Image;
-                        pb14.Image = Properties.Resources.agent;
+                        case 'w':
+                            btn14.Image = Properties.Resources.wumpus;
+                            break;
+                        case 'p':
+                            btn14.Image = Properties.Resources.pit;
+                            break;
+                        case 'g':
+                            btn14.Image = Properties.Resources.gold;
+                            break;
+                        case 's':
+                            btn14.Image = Properties.Resources.strench;
+                            break;
+                        case 'b':
+                            btn14.Image = Properties.Resources.breze;
+                            break;
+                        default:
+                            break;
                     }
                     break;
                 case 15:
-                    if (pb15.Image == null)
+                    switch (pieces[value])
                     {
-                        pb15.Image = Properties.Resources.agent;
+                        case 'w':
+                            btn15.Image = Properties.Resources.wumpus;
+                            break;
+                        case 'p':
+                            btn15.Image = Properties.Resources.pit;
+                            break;
+                        case 'g':
+                            btn15.Image = Properties.Resources.gold;
+                            break;
+                        case 's':
+                            btn15.Image = Properties.Resources.strench;
+                            break;
+                        case 'b':
+                            btn15.Image = Properties.Resources.breze;
+                            break;
+                        default:
+                            break;
                     }
-                    else if (pb15.Image != null)
-                    {
-                        pb15.BackgroundImage = pb15.Image;
-                        pb15.Image = Properties.Resources.agent;
-                    }
-                    break;
-                default:
                     break;
             }
         }
 
-        void printPit(int num)
-        {
-            switch (num)
-            {
-                case 0:
-                    pb0.Image = Properties.Resources.pit;
-                    extensions(0, 'p');
-                    break;
-                case 1:
-                    pb1.Image = Properties.Resources.pit;
-                    extensions(1, 'p');
-                    break;
-                case 2:
-                    pb2.Image = Properties.Resources.pit;
-                    extensions(2, 'p');
-                    break;
-                case 3:
-                    pb3.Image = Properties.Resources.pit;
-                    extensions(3, 'p');
-                    break;
-                case 4:
-                    pb4.Image = Properties.Resources.pit;
-                    extensions(4, 'p');
-                    break;
-                case 5:
-                    pb5.Image = Properties.Resources.pit;
-                    extensions(5, 'p');
-                    break;
-                case 6:
-                    pb6.Image = Properties.Resources.pit;
-                    extensions(6, 'p');
-                    break;
-                case 7:
-                    pb7.Image = Properties.Resources.pit;
-                    extensions(7, 'p');
-                    break;
-                case 8:
-                    pb8.Image = Properties.Resources.pit;
-                    extensions(8, 'p');
-                    break;
-                case 9:
-                    pb9.Image = Properties.Resources.pit;
-                    extensions(9, 'p');
-                    break;
-                case 10:
-                    pb10.Image = Properties.Resources.pit;
-                    extensions(10, 'p');
-                    break;
-                case 11:
-                    pb11.Image = Properties.Resources.pit;
-                    extensions(11, 'p');
-                    break;
-                case 13:
-                    pb13.Image = Properties.Resources.pit;
-                    extensions(13, 'p');
-                    break;
-                case 14:
-                    pb14.Image = Properties.Resources.pit;
-                    extensions(14, 'p');
-                    break;
-                case 15:
-                    pb15.Image = Properties.Resources.pit;
-                    extensions(15, 'p');
-                    break;
-                default:
-                    pb10.Image = Properties.Resources.pit;
-                    extensions(10, 'p');
-                    break;
-            }
-
-        }
-
-        void printGold(int num)
-        {
-            switch (num)
-            {
-                case 0:
-                    pb0.Image = Properties.Resources.gold;
-                    break;
-                case 1:
-                    pb1.Image = Properties.Resources.gold;
-                    break;
-                case 2:
-                    pb2.Image = Properties.Resources.gold;
-                    break;
-                case 3:
-                    pb3.Image = Properties.Resources.gold;
-                    break;
-                case 4:
-                    pb4.Image = Properties.Resources.gold;
-                    break;
-                case 5:
-                    pb5.Image = Properties.Resources.gold;
-                    break;
-                case 6:
-                    pb6.Image = Properties.Resources.gold;
-                    break;
-                case 7:
-                    pb7.Image = Properties.Resources.gold;
-                    break;
-                case 8:
-                    pb8.Image = Properties.Resources.gold;
-                    break;
-                case 9:
-                    pb9.Image = Properties.Resources.gold;
-                    break;
-                case 10:
-                    pb10.Image = Properties.Resources.gold;
-                    break;
-                case 11:
-                    pb11.Image = Properties.Resources.gold;
-                    break;
-                case 13:
-                    pb13.Image = Properties.Resources.gold;
-                    break;
-                case 14:
-                    pb14.Image = Properties.Resources.gold;
-                    break;
-                case 15:
-                    pb15.Image = Properties.Resources.gold;
-                    break;
-                default:
-                    pb2.Image = Properties.Resources.gold;
-                    break;
-            }
-
-        }
-
-        void printWumpus(int num)
-        {
-            switch (num)
-            {
-                case 0:
-                    pb0.Image = Properties.Resources.wumpus;
-                    extensions(0, 'w');
-                    break;
-                case 1:
-                    pb1.Image = Properties.Resources.wumpus;
-                    extensions(1, 'w');
-                    break;
-                case 2:
-                    pb2.Image = Properties.Resources.wumpus;
-                    extensions(2, 'w');
-                    break;
-                case 3:
-                    pb3.Image = Properties.Resources.wumpus;
-                    extensions(3, 'w');
-                    break;
-                case 4:
-                    pb4.Image = Properties.Resources.wumpus;
-                    extensions(4, 'w');
-                    break;
-                case 5:
-                    pb5.Image = Properties.Resources.wumpus;
-                    extensions(5, 'w');
-                    break;
-                case 6:
-                    pb6.Image = Properties.Resources.wumpus;
-                    extensions(6, 'w');
-                    break;
-                case 7:
-                    pb7.Image = Properties.Resources.wumpus;
-                    extensions(7, 'w');
-                    break;
-                case 8:
-                    pb8.Image = Properties.Resources.wumpus;
-                    extensions(8, 'w');
-                    break;
-                case 9:
-                    pb9.Image = Properties.Resources.wumpus;
-                    extensions(9, 'w');
-                    break;
-                case 10:
-                    pb10.Image = Properties.Resources.wumpus;
-                    extensions(10, 'w');
-                    break;
-                case 11:
-                    pb11.Image = Properties.Resources.wumpus;
-                    extensions(11, 'w');
-                    break;
-                case 13:
-                    pb13.Image = Properties.Resources.wumpus;
-                    extensions(13, 'w');
-                    break;
-                case 14:
-                    pb14.Image = Properties.Resources.wumpus;
-                    extensions(14, 'w');
-                    break;
-                case 15:
-                    pb15.Image = Properties.Resources.wumpus;
-                    extensions(15, 'w');
-                    break;
-                default:
-                    pb6.Image = Properties.Resources.wumpus;
-                    extensions(6, 'w');
-                    break;
-            }
-        }
 
         void extensions(int num, char c)
         {
@@ -708,319 +547,319 @@ namespace Wumpus_game
                 case 0:
                     if (c == 'w')
                     {
-                        if (pb1.Image == null)
-                        { pb1.Image = Properties.Resources.strench; }
-                        if (pb4.Image == null)
-                        { pb4.Image = Properties.Resources.strench; }
+                        if (pieces[1] == 'z')
+                        { pieces[1] = 's'; }
+                        if (pieces[4] == 'z')
+                        { pieces[4] = 's'; }
                     }
                     else if (c == 'p')
                     {
-                        if (pb1.Image == null)
-                        { pb1.Image = Properties.Resources.breze; }
-                        if (pb4.Image == null)
-                        { pb4.Image = Properties.Resources.breze; }
+                        if (pieces[1] == 'z')
+                        { pieces[1] = 'b'; }
+                        if (pieces[4] == 'z')
+                        { pieces[4] = 'b'; }
                     }
                     break;
 
                 case 3:
                     if (c == 'w')
                     {
-                        if (pb2.Image == null)
-                        { pb2.Image = Properties.Resources.strench; }
-                        if (pb7.Image == null)
-                        { pb7.Image = Properties.Resources.strench; }
+                        if (pieces[2] == 'z')
+                        { pieces[2] = 's'; }
+                        if (pieces[7] == 'z')
+                        { pieces[7] = 's'; }
                     }
                     else if (c == 'p')
                     {
-                        if (pb2.Image == null)
-                        { pb2.Image = Properties.Resources.breze; }
-                        if (pb7.Image == null)
-                        { pb7.Image = Properties.Resources.breze; }
+                        if (pieces[2] == 'z')
+                        { pieces[2] = 'b'; }
+                        if (pieces[7] == 'z')
+                        { pieces[7] = 'b'; }
                     }
                     break;
 
                 case 15:
                     if (c == 'w')
                     {
-                        if (pb11.Image == null)
-                        { pb11.Image = Properties.Resources.strench; }
-                        if (pb14.Image == null)
-                        { pb14.Image = Properties.Resources.strench; }
+                        if (pieces[11] == 'z')
+                        { pieces[11] = 's'; }
+                        if (pieces[14] == 'z')
+                        { pieces[14] = 's'; }
                     }
                     else if (c == 'p')
                     {
-                        if (pb11.Image == null)
-                        { pb11.Image = Properties.Resources.breze; }
-                        if (pb14.Image == null)
-                        { pb14.Image = Properties.Resources.breze; }
+                        if (pieces[11] == 'z')
+                        { pieces[11] = 'b'; }
+                        if (pieces[14] == 'z')
+                        { pieces[14] = 'b'; }
                     }
                     break;
 
                 case 1:
                     if (c == 'w')
                     {
-                        if (pb0.Image == null)
-                        { pb0.Image = Properties.Resources.strench; }
-                        if (pb5.Image == null)
-                        { pb5.Image = Properties.Resources.strench; }
-                        if (pb2.Image == null)
-                        { pb2.Image = Properties.Resources.strench; }
+                        if (pieces[0] == 'z')
+                        { pieces[0] = 's'; }
+                        if (pieces[5] == 'z')
+                        { pieces[5] = 's'; }
+                        if (pieces[2] == 'z')
+                        { pieces[2] = 's'; }
                     }
                     else if (c == 'p')
                     {
-                        if (pb0.Image == null)
-                        { pb0.Image = Properties.Resources.breze; }
-                        if (pb5.Image == null)
-                        { pb5.Image = Properties.Resources.breze; }
-                        if (pb2.Image == null)
-                        { pb2.Image = Properties.Resources.breze; }
+                        if (pieces[0] == 'z')
+                        { pieces[0] = 'b'; }
+                        if (pieces[5] == 'z')
+                        { pieces[5] = 'b'; }
+                        if (pieces[2] == 'z')
+                        { pieces[2] = 'b'; }
                     }
                     break;
 
                 case 2:
                     if (c == 'w')
                     {
-                        if (pb1.Image == null)
-                        { pb1.Image = Properties.Resources.strench; }
-                        if (pb6.Image == null)
-                        { pb6.Image = Properties.Resources.strench; }
-                        if (pb3.Image == null)
-                        { pb3.Image = Properties.Resources.strench; }
+                        if (pieces[1] == 'z')
+                        { pieces[1] = 's'; }
+                        if (pieces[6] == 'z')
+                        { pieces[6] = 's'; }
+                        if (pieces[3] == 'z')
+                        { pieces[3] = 's'; }
                     }
                     else if (c == 'p')
                     {
-                        if (pb1.Image == null)
-                        { pb1.Image = Properties.Resources.breze; }
-                        if (pb6.Image == null)
-                        { pb6.Image = Properties.Resources.breze; }
-                        if (pb3.Image == null)
-                        { pb3.Image = Properties.Resources.breze; }
+                        if (pieces[1] == 'z')
+                        { pieces[1] = 'b'; }
+                        if (pieces[6] == 'z')
+                        { pieces[6] = 'b'; }
+                        if (pieces[3] == 'z')
+                        { pieces[3] = 'b'; }
                     }
                     break;
 
                 case 4:
                     if (c == 'w')
                     {
-                        if (pb0.Image == null)
-                        { pb0.Image = Properties.Resources.strench; }
-                        if (pb5.Image == null)
-                        { pb5.Image = Properties.Resources.strench; }
-                        if (pb8.Image == null)
-                        { pb8.Image = Properties.Resources.strench; }
+                        if (pieces[0] == 'z')
+                        { pieces[0] = 's'; }
+                        if (pieces[5] == 'z')
+                        { pieces[5] = 's'; }
+                        if (pieces[8] == 'z')
+                        { pieces[8] = 's'; }
                     }
                     else if (c == 'p')
                     {
-                        if (pb0.Image == null)
-                        { pb0.Image = Properties.Resources.breze; }
-                        if (pb5.Image == null)
-                        { pb5.Image = Properties.Resources.breze; }
-                        if (pb8.Image == null)
-                        { pb8.Image = Properties.Resources.breze; }
+                        if (pieces[0] == 'z')
+                        { pieces[0] = 'b'; }
+                        if (pieces[5] == 'z')
+                        { pieces[5] = 'b'; }
+                        if (pieces[8] == 'z')
+                        { pieces[8] = 'b'; }
                     }
                     break;
 
                 case 7:
                     if (c == 'w')
                     {
-                        if (pb3.Image == null)
-                        { pb3.Image = Properties.Resources.strench; }
-                        if (pb6.Image == null)
-                        { pb6.Image = Properties.Resources.strench; }
-                        if (pb11.Image == null)
-                        { pb11.Image = Properties.Resources.strench; }
+                        if (pieces[3] == 'z')
+                        { pieces[3] = 's'; }
+                        if (pieces[6] == 'z')
+                        { pieces[6] = 's'; }
+                        if (pieces[11] == 'z')
+                        { pieces[11] = 's'; }
                     }
                     else if (c == 'p')
                     {
-                        if (pb3.Image == null)
-                        { pb3.Image = Properties.Resources.breze; }
-                        if (pb6.Image == null)
-                        { pb6.Image = Properties.Resources.breze; }
-                        if (pb11.Image == null)
-                        { pb11.Image = Properties.Resources.breze; }
+                        if (pieces[3] == 'z')
+                        { pieces[3] = 'b'; }
+                        if (pieces[6] == 'z')
+                        { pieces[6] = 'b'; }
+                        if (pieces[11] == 'z')
+                        { pieces[11] = 'b'; }
                     }
                     break;
 
                 case 8:
                     if (c == 'w')
                     {
-                        if (pb4.Image == null)
-                        { pb4.Image = Properties.Resources.strench; }
-                        if (pb9.Image == null)
-                        { pb9.Image = Properties.Resources.strench; }
-                        if (pb12.Image == null)
-                        { pb12.Image = Properties.Resources.strench; }
+                        if (pieces[4] == 'z')
+                        { pieces[4] = 's'; }
+                        if (pieces[9] == 'z')
+                        { pieces[9] = 's'; }
+                        if (pieces[12] == 'z')
+                        { pieces[12] = 's'; }
                     }
                     else if (c == 'p')
                     {
-                        if (pb4.Image == null)
-                        { pb4.Image = Properties.Resources.breze; }
-                        if (pb9.Image == null)
-                        { pb9.Image = Properties.Resources.breze; }
-                        if (pb12.Image == null)
-                        { pb12.Image = Properties.Resources.breze; }
+                        if (pieces[4] == 'z')
+                        { pieces[4] = 'b'; }
+                        if (pieces[9] == 'z')
+                        { pieces[9] = 'b'; }
+                        if (pieces[12] == 'z')
+                        { pieces[12] = 'b'; }
                     }
                     break;
 
                 case 11:
                     if (c == 'w')
                     {
-                        if (pb7.Image == null)
-                        { pb7.Image = Properties.Resources.strench; }
-                        if (pb10.Image == null)
-                        { pb10.Image = Properties.Resources.strench; }
-                        if (pb15.Image == null)
-                        { pb15.Image = Properties.Resources.strench; }
+                        if (pieces[7] == 'z')
+                        { pieces[7] = 's'; }
+                        if (pieces[10] == 'z')
+                        { pieces[10] = 's'; }
+                        if (pieces[15] == 'z')
+                        { pieces[15] = 's'; }
                     }
                     else if (c == 'p')
                     {
-                        if (pb7.Image == null)
-                        { pb7.Image = Properties.Resources.breze; }
-                        if (pb10.Image == null)
-                        { pb10.Image = Properties.Resources.breze; }
-                        if (pb15.Image == null)
-                        { pb15.Image = Properties.Resources.breze; }
+                        if (pieces[7] == 'z')
+                        { pieces[7] = 'b'; }
+                        if (pieces[10] == 'z')
+                        { pieces[10] = 'b'; }
+                        if (pieces[15] == 'z')
+                        { pieces[15] = 'b'; }
                     }
                     break;
 
                 case 13:
                     if (c == 'w')
                     {
-                        if (pb12.Image == null)
-                        { pb12.Image = Properties.Resources.strench; }
-                        if (pb9.Image == null)
-                        { pb9.Image = Properties.Resources.strench; }
-                        if (pb14.Image == null)
-                        { pb14.Image = Properties.Resources.strench; }
+                        if (pieces[12] == 'z')
+                        { pieces[12] = 's'; }
+                        if (pieces[9] == 'z')
+                        { pieces[9] = 's'; }
+                        if (pieces[14] == 'z')
+                        { pieces[14] = 's'; }
                     }
                     else if (c == 'p')
                     {
-                        if (pb12.Image == null)
-                        { pb12.Image = Properties.Resources.breze; }
-                        if (pb9.Image == null)
-                        { pb9.Image = Properties.Resources.breze; }
-                        if (pb14.Image == null)
-                        { pb14.Image = Properties.Resources.breze; }
+                        if (pieces[12] == 'z')
+                        { pieces[12] = 'b'; }
+                        if (pieces[9] == 'z')
+                        { pieces[9] = 'b'; }
+                        if (pieces[14] == 'z')
+                        { pieces[14] = 'b'; }
                     }
                     break;
 
                 case 14:
                     if (c == 'w')
                     {
-                        if (pb13.Image == null)
-                        { pb13.Image = Properties.Resources.strench; }
-                        if (pb10.Image == null)
-                        { pb10.Image = Properties.Resources.strench; }
-                        if (pb15.Image == null)
-                        { pb15.Image = Properties.Resources.strench; }
+                        if (pieces[13] == 'z')
+                        { pieces[13] = 's'; }
+                        if (pieces[10] == 'z')
+                        { pieces[10] = 's'; }
+                        if (pieces[15] == 'z')
+                        { pieces[15] = 's'; }
                     }
                     else if (c == 'p')
                     {
-                        if (pb13.Image == null)
-                        { pb13.Image = Properties.Resources.breze; }
-                        if (pb10.Image == null)
-                        { pb10.Image = Properties.Resources.breze; }
-                        if (pb15.Image == null)
-                        { pb15.Image = Properties.Resources.breze; }
+                        if (pieces[13] == 'z')
+                        { pieces[13] = 'b'; }
+                        if (pieces[10] == 'z')
+                        { pieces[10] = 'b'; }
+                        if (pieces[15] == 'z')
+                        { pieces[15] = 'b'; }
                     }
                     break;
 
                 case 5:
                     if (c == 'w')
                     {
-                        if (pb1.Image == null)
-                        { pb1.Image = Properties.Resources.strench; }
-                        if (pb6.Image == null)
-                        { pb6.Image = Properties.Resources.strench; }
-                        if (pb9.Image == null)
-                        { pb9.Image = Properties.Resources.strench; }
-                        if (pb4.Image == null)
-                        { pb4.Image = Properties.Resources.strench; }
+                        if (pieces[1] == 'z')
+                        { pieces[1] = 's'; }
+                        if (pieces[6] == 'z')
+                        { pieces[6] = 's'; }
+                        if (pieces[9] == 'z')
+                        { pieces[9] = 's'; }
+                        if (pieces[4] == 'z')
+                        { pieces[4] = 's'; }
                     }
                     else if (c == 'p')
                     {
-                        if (pb1.Image == null)
-                        { pb1.Image = Properties.Resources.breze; }
-                        if (pb6.Image == null)
-                        { pb6.Image = Properties.Resources.breze; }
-                        if (pb9.Image == null)
-                        { pb9.Image = Properties.Resources.breze; }
-                        if (pb4.Image == null)
-                        { pb4.Image = Properties.Resources.breze; }
+                        if (pieces[1] == 'z')
+                        { pieces[1] = 'b'; }
+                        if (pieces[6] == 'z')
+                        { pieces[6] = 'b'; }
+                        if (pieces[9] == 'z')
+                        { pieces[9] = 'b'; }
+                        if (pieces[4] == 'z')
+                        { pieces[4] = 'b'; }
                     }
                     break;
 
                 case 6:
                     if (c == 'w')
                     {
-                        if (pb2.Image == null)
-                        { pb2.Image = Properties.Resources.strench; }
-                        if (pb5.Image == null)
-                        { pb5.Image = Properties.Resources.strench; }
-                        if (pb7.Image == null)
-                        { pb7.Image = Properties.Resources.strench; }
-                        if (pb10.Image == null)
-                        { pb10.Image = Properties.Resources.strench; }
+                        if (pieces[2] == 'z')
+                        { pieces[2] = 's'; }
+                        if (pieces[5] == 'z')
+                        { pieces[5] = 's'; }
+                        if (pieces[7] == 'z')
+                        { pieces[7] = 's'; }
+                        if (pieces[10] == 'z')
+                        { pieces[10] = 's'; }
                     }
                     else if (c == 'p')
                     {
-                        if (pb2.Image == null)
-                        { pb2.Image = Properties.Resources.breze; }
-                        if (pb5.Image == null)
-                        { pb5.Image = Properties.Resources.breze; }
-                        if (pb7.Image == null)
-                        { pb7.Image = Properties.Resources.breze; }
-                        if (pb10.Image == null)
-                        { pb10.Image = Properties.Resources.breze; }
+                        if (pieces[2] == 'z')
+                        { pieces[2] = 'b'; }
+                        if (pieces[5] == 'z')
+                        { pieces[5] = 'b'; }
+                        if (pieces[7] == 'z')
+                        { pieces[7] = 'b'; }
+                        if (pieces[10] == 'z')
+                        { pieces[10] = 'b'; }
                     }
                     break;
 
                 case 9:
                     if (c == 'w')
                     {
-                        if (pb5.Image == null)
-                        { pb5.Image = Properties.Resources.strench; }
-                        if (pb8.Image == null)
-                        { pb8.Image = Properties.Resources.strench; }
-                        if (pb10.Image == null)
-                        { pb10.Image = Properties.Resources.strench; }
-                        if (pb13.Image == null)
-                        { pb13.Image = Properties.Resources.strench; }
+                        if (pieces[10] == 'z')
+                        { pieces[10] = 's'; }
+                        if (pieces[5] == 'z')
+                        { pieces[5] = 's'; }
+                        if (pieces[8] == 'z')
+                        { pieces[8] = 's'; }
+                        if (pieces[13] == 'z')
+                        { pieces[13] = 's'; }
                     }
                     else if (c == 'p')
                     {
-                        if (pb5.Image == null)
-                        { pb5.Image = Properties.Resources.breze; }
-                        if (pb8.Image == null)
-                        { pb8.Image = Properties.Resources.breze; }
-                        if (pb10.Image == null)
-                        { pb10.Image = Properties.Resources.breze; }
-                        if (pb13.Image == null)
-                        { pb13.Image = Properties.Resources.breze; }
+                        if (pieces[5] == 'z')
+                        { pieces[5] = 'b'; }
+                        if (pieces[8] == 'z')
+                        { pieces[8] = 'b'; }
+                        if (pieces[10] == 'z')
+                        { pieces[10] = 'b'; }
+                        if (pieces[13] == 'z')
+                        { pieces[13] = 'b'; }
                     }
                     break;
 
                 case 10:
                     if (c == 'w')
                     {
-                        if (pb6.Image == null)
-                        { pb6.Image = Properties.Resources.strench; }
-                        if (pb9.Image == null)
-                        { pb9.Image = Properties.Resources.strench; }
-                        if (pb11.Image == null)
-                        { pb11.Image = Properties.Resources.strench; }
-                        if (pb14.Image == null)
-                        { pb14.Image = Properties.Resources.strench; }
+                        if (pieces[11] == 'z')
+                        { pieces[11] = 's'; }
+                        if (pieces[6] == 'z')
+                        { pieces[6] = 's'; }
+                        if (pieces[9] == 'z')
+                        { pieces[9] = 's'; }
+                        if (pieces[14] == 'z')
+                        { pieces[14] = 's'; }
                     }
                     else if (c == 'p')
                     {
-                        if (pb6.Image == null)
-                        { pb6.Image = Properties.Resources.breze; }
-                        if (pb9.Image == null)
-                        { pb9.Image = Properties.Resources.breze; }
-                        if (pb11.Image == null)
-                        { pb11.Image = Properties.Resources.breze; }
-                        if (pb14.Image == null)
-                        { pb14.Image = Properties.Resources.breze; }
+                        if (pieces[11] == 'z')
+                        { pieces[11] = 'b'; }
+                        if (pieces[6] == 'z')
+                        { pieces[6] = 'b'; }
+                        if (pieces[9] == 'z')
+                        { pieces[9] = 'b'; }
+                        if (pieces[14] == 'z')
+                        { pieces[14] = 'b'; }
                     }
                     break;
                 default:
@@ -1028,16 +867,110 @@ namespace Wumpus_game
             }
         }
 
-        private void pb2_Click(object sender, EventArgs e)
+
+        void enableButtons(int temp)
         {
-
+            btn0.Enabled = false;
+            btn1.Enabled = false;
+            btn2.Enabled = false;
+            btn3.Enabled = false;
+            btn4.Enabled = false;
+            btn5.Enabled = false;
+            btn6.Enabled = false;
+            btn7.Enabled = false;
+            btn8.Enabled = false;
+            btn9.Enabled = false;
+            btn10.Enabled = false;
+            btn11.Enabled = false;
+            btn12.Enabled = false;
+            btn13.Enabled = false;
+            btn14.Enabled = false;
+            btn15.Enabled = false;
+            switch (temp)
+            {
+                case 0:
+                    btn1.Enabled = true;
+                    btn4.Enabled = true;
+                    break;
+                case 1:
+                    btn0.Enabled = true;
+                    btn5.Enabled = true;
+                    btn2.Enabled = true;
+                    break;
+                case 2:
+                    btn1.Enabled = true;
+                    btn6.Enabled = true;
+                    btn3.Enabled = true;
+                    break;
+                case 3:
+                    btn2.Enabled = true;
+                    btn7.Enabled = true;
+                    break;
+                case 4:
+                    btn0.Enabled = true;
+                    btn5.Enabled = true;
+                    btn8.Enabled = true;
+                    break;
+                case 5:
+                    btn1.Enabled = true;
+                    btn4.Enabled = true;
+                    btn9.Enabled = true;
+                    btn6.Enabled = true;
+                    break;
+                case 6:
+                    btn2.Enabled = true;
+                    btn5.Enabled = true;
+                    btn10.Enabled = true;
+                    btn7.Enabled = true;
+                    break;
+                case 7:
+                    btn3.Enabled = true;
+                    btn6.Enabled = true;
+                    btn11.Enabled = true;
+                    break;
+                case 8:
+                    btn4.Enabled = true;
+                    btn9.Enabled = true;
+                    btn12.Enabled = true;
+                    break;
+                case 9:
+                    btn5.Enabled = true;
+                    btn8.Enabled = true;
+                    btn13.Enabled = true;
+                    btn10.Enabled = true;
+                    break;
+                case 10:
+                    btn14.Enabled = true;
+                    btn9.Enabled = true;
+                    btn6.Enabled = true;
+                    btn11.Enabled = true;
+                    break;
+                case 11:
+                    btn7.Enabled = true;
+                    btn10.Enabled = true;
+                    btn15.Enabled = true;
+                    break;
+                case 12:
+                    btn8.Enabled = true;
+                    btn13.Enabled = true;
+                    break;
+                case 13:
+                    btn12.Enabled = true;
+                    btn9.Enabled = true;
+                    btn14.Enabled = true;
+                    break;
+                case 14:
+                    btn13.Enabled = true;
+                    btn10.Enabled = true;
+                    btn15.Enabled = true;
+                    break;
+                case 15:
+                    btn11.Enabled = true;
+                    btn14.Enabled = true;
+                    break;
+                default:
+                    break;
+            }
         }
-
-        private void pb0_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        
     }
 }
